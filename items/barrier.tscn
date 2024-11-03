@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cru1g2nug5yqh"]
+
+[ext_resource type="Script" path="res://scripts/barrier.gd" id="1_81wfq"]
+[ext_resource type="Texture2D" uid="uid://bmj5ft2n2mfox" path="res://art/environment/Laser Temp.png" id="2_blj6w"]
+[ext_resource type="Texture2D" uid="uid://ra16rekud0tc" path="res://art/environment/Temp Laser holder.png" id="3_73vnr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2by4"]
+size = Vector2(47.5365, 5.79598)
+
+[node name="barrier" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_81wfq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.5, 2)
+scale = Vector2(0.033437, 0.166667)
+texture = ExtResource("2_blj6w")
+
+[node name="end1" type="Sprite2D" parent="."]
+position = Vector2(23.6891, 2)
+rotation = -1.5708
+scale = Vector2(0.07, 0.0262348)
+texture = ExtResource("3_73vnr")
+
+[node name="end2" type="Sprite2D" parent="."]
+position = Vector2(-21.402, 2)
+rotation = 1.5708
+scale = Vector2(0.0699248, 0.0255192)
+texture = ExtResource("3_73vnr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(1.00975, 1.0352)
+shape = SubResource("RectangleShape2D_j2by4")
+
+[node name="deathTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

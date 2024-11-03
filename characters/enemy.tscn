@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://u044eolqlylo"]
+
+[ext_resource type="Texture2D" uid="uid://cp0unavkop3fd" path="res://art/hoompert/Evil Hoompert.png" id="1_t7fdy"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_vtj7b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0hx7"]
+radius = 41.0122
+
+[node name="enemy" type="Area2D"]
+scale = Vector2(0.755, 0.755)
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_vtj7b")
+
+[node name="enemySprite" type="Sprite2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.14775, 0.14775)
+texture = ExtResource("1_t7fdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u0hx7")
+
+[node name="deathTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="rayDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 75)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="rayLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-75, 0)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="rayUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -75)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="rayRight" type="RayCast2D" parent="."]
+target_position = Vector2(75, 0)
+collision_mask = 4
+collide_with_areas = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

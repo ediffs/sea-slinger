@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://gid3klvlkxm1"]
+
+[ext_resource type="Texture2D" uid="uid://0iwkxj5hwq5c" path="res://art/environment/z---speed2png-removebg-preview.png" id="1_jmar6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnt48"]
+size = Vector2(59, 13)
+
+[node name="speedgate" type="Area2D"]
+scale = Vector2(9, 2.64)
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.561868, 0.999998)
+rotation = 4.71239
+scale = Vector2(0.107454, 0.376894)
+texture = ExtResource("1_jmar6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_rnt48")

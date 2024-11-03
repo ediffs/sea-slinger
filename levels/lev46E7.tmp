@@ -1,0 +1,326 @@
+[gd_scene load_steps=14 format=3 uid="uid://csn0dcaspxdw7"]
+
+[ext_resource type="Script" path="res://scripts/gameManager.gd" id="1_3w1lk"]
+[ext_resource type="FontFile" uid="uid://btl3xuoiwr8dy" path="res://other/Comic Sans MS Bold.ttf" id="2_8fh1g"]
+[ext_resource type="Texture2D" uid="uid://blp57d3tp0ykh" path="res://art/environment/Cave Temp BG.png" id="2_rhoit"]
+[ext_resource type="PackedScene" uid="uid://l67jcjvhtjti" path="res://characters/player.tscn" id="3_tsa00"]
+[ext_resource type="PackedScene" uid="uid://duw540v0a2odp" path="res://items/endlevel.tscn" id="4_tmhjo"]
+[ext_resource type="PackedScene" uid="uid://btvese1hdfphd" path="res://items/bouncer.tscn" id="5_kp7u0"]
+[ext_resource type="PackedScene" uid="uid://cive8hb65sd7x" path="res://items/collectible.tscn" id="6_htm4k"]
+[ext_resource type="PackedScene" uid="uid://bm0xg12gtls3f" path="res://items/dot.tscn" id="7_r1hs4"]
+[ext_resource type="PackedScene" uid="uid://cru1g2nug5yqh" path="res://items/barrier.tscn" id="8_i7i8y"]
+[ext_resource type="PackedScene" uid="uid://u044eolqlylo" path="res://characters/enemy.tscn" id="9_4gw10"]
+[ext_resource type="PackedScene" uid="uid://c12pcw4wch7me" path="res://items/bomb.tscn" id="10_ssjxx"]
+
+[sub_resource type="Theme" id="Theme_agsg6"]
+default_font = ExtResource("2_8fh1g")
+default_font_size = 42
+
+[sub_resource type="GDScript" id="GDScript_wrxtx"]
+script/source = "extends Label
+
+"
+
+[node name="level_1" type="Node2D"]
+
+[node name="gameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_3w1lk")
+
+[node name="PlayerUI" type="Control" parent="gameManager"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="scorelabel" type="Label" parent="gameManager/PlayerUI"]
+layout_mode = 0
+offset_left = -1365.0
+offset_top = -749.0
+offset_right = -1099.0
+offset_bottom = -654.0
+theme = SubResource("Theme_agsg6")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8fh1g")
+text = "Score: 0"
+script = SubResource("GDScript_wrxtx")
+
+[node name="bg" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6.10352e-05, -596)
+scale = Vector2(1.539, 1.497)
+texture = ExtResource("2_rhoit")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." instance=ExtResource("3_tsa00")]
+z_index = 1
+position = Vector2(-1245, -298)
+
+[node name="endlevel" parent="." instance=ExtResource("4_tmhjo")]
+position = Vector2(-1311, -1260)
+
+[node name="bouncers" type="Node" parent="."]
+
+[node name="bouncer4" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-416, -606)
+
+[node name="bouncer5" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-670, -1118)
+
+[node name="bouncer6" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-392, -1214)
+
+[node name="bouncer7" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-290, -1318)
+
+[node name="bouncer13" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-1354, -1120)
+
+[node name="bouncer15" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-1241, -1118)
+
+[node name="bouncer16" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-1126, -1118)
+
+[node name="bouncer17" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-1003, -1118)
+
+[node name="bouncer18" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-901, -1120)
+
+[node name="bouncer14" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-789, -1117)
+
+[node name="bouncer26" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(512, -1251)
+
+[node name="bouncer10" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(305, -212)
+Horizontal = false
+Moves = true
+
+[node name="bouncer20" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(156, -717)
+
+[node name="bouncer32" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(-256, -364)
+
+[node name="bouncer34" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(120, -564)
+
+[node name="bouncer35" parent="bouncers" instance=ExtResource("5_kp7u0")]
+z_index = 2
+position = Vector2(565, -406)
+
+[node name="bouncer28" parent="bouncers" instance=ExtResource("5_kp7u0")]
+position = Vector2(643, -692)
+
+[node name="collectibles" type="Node" parent="."]
+
+[node name="collectible" parent="collectibles" instance=ExtResource("6_htm4k")]
+position = Vector2(257, -1298)
+
+[node name="collectible5" parent="collectibles" instance=ExtResource("6_htm4k")]
+position = Vector2(-344, -1267)
+
+[node name="collectible3" parent="collectibles" instance=ExtResource("6_htm4k")]
+position = Vector2(-1317, -769)
+
+[node name="collectible4" parent="collectibles" instance=ExtResource("6_htm4k")]
+position = Vector2(470, -222)
+
+[node name="collectible12" parent="collectibles" instance=ExtResource("6_htm4k")]
+position = Vector2(602, -1210)
+
+[node name="dots" type="Node" parent="."]
+
+[node name="dot9" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(644, -248)
+collision_mask = 2
+
+[node name="dot18" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(642, -546)
+collision_mask = 2
+
+[node name="dot19" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(-13, -668)
+collision_mask = 2
+
+[node name="dot3" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(-1357, -773)
+collision_mask = 2
+
+[node name="dot15" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(387, -853)
+collision_mask = 2
+
+[node name="dot27" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(-2, -974)
+collision_mask = 2
+
+[node name="dot25" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(-540, -293)
+collision_mask = 2
+
+[node name="dot26" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(-502, -1037)
+collision_mask = 2
+
+[node name="dot29" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(-482, -1307)
+collision_mask = 2
+
+[node name="dot16" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(106, -1179)
+collision_mask = 2
+
+[node name="dot4" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(-712, -546)
+collision_mask = 2
+
+[node name="dot5" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(424, -373)
+collision_mask = 2
+
+[node name="dot10" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(376, -1305)
+collision_mask = 2
+
+[node name="dot13" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(639, -1313)
+collision_mask = 2
+
+[node name="dot14" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(274, -586)
+collision_mask = 2
+
+[node name="dot20" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(-719, -971)
+collision_mask = 2
+
+[node name="dot28" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(518, -981)
+collision_mask = 2
+
+[node name="dot2" parent="dots" instance=ExtResource("7_r1hs4")]
+position = Vector2(123, -325)
+collision_mask = 2
+
+[node name="walls" type="Node" parent="."]
+
+[node name="barrier9" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(738, -1081)
+rotation = 1.5708
+scale = Vector2(11.56, 2.32)
+
+[node name="barrier11" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(441, -1196)
+rotation = 1.5708
+scale = Vector2(7.76, 2.32)
+
+[node name="barrier14" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(740, -455)
+rotation = 1.5708
+scale = Vector2(12.08, 2.32)
+
+[node name="barrier12" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(-1428, -1101)
+rotation = 1.5708
+scale = Vector2(11.56, 2.32)
+
+[node name="barrier23" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(-1424, -467)
+rotation = 1.5708
+scale = Vector2(12.08, 2.32)
+
+[node name="barrier18" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(397, -797)
+scale = Vector2(11.92, 2.32)
+
+[node name="barrier20" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(-496, -458)
+scale = Vector2(12.76, 2.32)
+
+[node name="barrier22" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(-1121, -460)
+scale = Vector2(11.36, 2.32)
+
+[node name="barrier21" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(161, -456)
+scale = Vector2(12.76, 2.32)
+
+[node name="barrier8" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(-822, -1413)
+scale = Vector2(24.2007, 2.32)
+
+[node name="barrier10" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(267, -1408)
+scale = Vector2(18.0007, 2.32)
+
+[node name="barrier3" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(-685, -135)
+scale = Vector2(10.16, 2.32)
+
+[node name="barrier13" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(441, -137)
+scale = Vector2(10.16, 2.32)
+
+[node name="barrier6" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(-1193, -136)
+scale = Vector2(9.28, 2.32)
+
+[node name="barrier7" parent="walls" instance=ExtResource("8_i7i8y")]
+position = Vector2(-124, -136)
+scale = Vector2(11.36, 2.32)
+
+[node name="hazards" type="Node" parent="."]
+
+[node name="enemy7" parent="hazards" instance=ExtResource("9_4gw10")]
+position = Vector2(602, -1079)
+speed = 100
+
+[node name="enemy8" parent="hazards" instance=ExtResource("9_4gw10")]
+position = Vector2(448, -560)
+Horizontal = false
+
+[node name="enemy9" parent="hazards" instance=ExtResource("9_4gw10")]
+position = Vector2(-100, -566)
+Horizontal = false
+speed = 400
+
+[node name="bomb" parent="hazards" instance=ExtResource("10_ssjxx")]
+position = Vector2(-810, -296)
+
+[node name="bomb2" parent="hazards" instance=ExtResource("10_ssjxx")]
+position = Vector2(-888, -873)
+
+[node name="bomb7" parent="hazards" instance=ExtResource("10_ssjxx")]
+position = Vector2(-990, -1271)
+
+[node name="bomb3" parent="hazards" instance=ExtResource("10_ssjxx")]
+position = Vector2(-890, -612)
+
+[node name="bomb4" parent="hazards" instance=ExtResource("10_ssjxx")]
+position = Vector2(-1102, -757)
+
+[node name="bomb5" parent="hazards" instance=ExtResource("10_ssjxx")]
+position = Vector2(-1284, -952)
+
+[node name="bomb6" parent="hazards" instance=ExtResource("10_ssjxx")]
+position = Vector2(-1256, -587)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://btvese1hdfphd"]
+
+[ext_resource type="Script" path="res://scripts/bouncer.gd" id="1_23mlh"]
+[ext_resource type="Texture2D" uid="uid://cge3tbjussqvw" path="res://art/orbs/Bouncer Lifesaver.png" id="2_njanq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pgusu"]
+
+[node name="bouncer" type="StaticBody2D"]
+scale = Vector2(2.84, 2.84)
+collision_mask = 6
+script = ExtResource("1_23mlh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0208507, 0.0204903)
+texture = ExtResource("2_njanq")
+
+[node name="BouncerCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pgusu")
+
+[node name="rayDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 20)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="rayLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-20, 0)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="rayUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -20)
+collision_mask = 4
+collide_with_areas = true
+
+[node name="rayRight" type="RayCast2D" parent="."]
+target_position = Vector2(20, 0)
+collision_mask = 4
+collide_with_areas = true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c00svuaxvxuyk"]
+
+[ext_resource type="PackedScene" uid="uid://l67jcjvhtjti" path="res://characters/player.tscn" id="1_myojw"]
+[ext_resource type="PackedScene" uid="uid://do0g0n32f1fad" path="res://level functionality/UI.tscn" id="1_rf6rk"]
+
+[node name="gameplay" type="Node2D"]
+
+[node name="levels" type="Node2D" parent="." groups=["level_container"]]
+
+[node name="player" parent="." instance=ExtResource("1_myojw")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("1_rf6rk")]

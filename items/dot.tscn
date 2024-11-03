@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm0xg12gtls3f"]
+
+[ext_resource type="Script" path="res://scripts/dot.gd" id="1_jfau6"]
+[ext_resource type="Texture2D" uid="uid://dtjahiqdlumbi" path="res://art/orbs/Recolored dot@2x.png" id="2_pgcqr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1v6r"]
+radius = 8.0
+
+[node name="dot" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_jfau6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.47035e-08, 0)
+scale = Vector2(0.0257552, 0.0257552)
+texture = ExtResource("2_pgcqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g1v6r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

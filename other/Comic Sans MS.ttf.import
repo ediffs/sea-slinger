@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://do0r0fd11jafm"
+path="res://.godot/imported/Comic Sans MS.ttf-a6e479cda8c71b1ce89e1a21bed4027f.fontdata"
+
+[deps]
+
+source_file="res://other/Comic Sans MS.ttf"
+dest_files=["res://.godot/imported/Comic Sans MS.ttf-a6e479cda8c71b1ce89e1a21bed4027f.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

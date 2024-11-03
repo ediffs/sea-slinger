@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://c12pcw4wch7me"]
+
+[ext_resource type="Script" path="res://scripts/bomb.gd" id="1_pee3p"]
+[ext_resource type="Texture2D" uid="uid://begk8i1cv37g6" path="res://art/environment/Yorcles BIG@2x.png" id="2_gm6ly"]
+[ext_resource type="Texture2D" uid="uid://n8seiwgd5450" path="res://art/environment/Yorcles.png" id="4_l6vkc"]
+[ext_resource type="Texture2D" uid="uid://ci4v4gybvviyn" path="res://art/environment/Dotted Circle@2x.png" id="4_w6esr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fr1sb"]
+radius = 8.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rbbqo"]
+radius = 31.6984
+
+[node name="bomb" type="Node2D"]
+script = ExtResource("1_pee3p")
+
+[node name="sploded" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, -1.19209e-07)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_gm6ly")
+
+[node name="bob" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.078)
+texture = ExtResource("4_l6vkc")
+
+[node name="detonationZone" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="bombObject" type="CollisionShape2D" parent="detonationZone"]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("CircleShape2D_fr1sb")
+disabled = true
+
+[node name="activationZone" type="Area2D" parent="."]
+scale = Vector2(3.15, 3.15)
+collision_mask = 2
+
+[node name="bombActivation" type="CollisionShape2D" parent="activationZone"]
+shape = SubResource("CircleShape2D_rbbqo")
+
+[node name="Sprite2D" type="Sprite2D" parent="activationZone"]
+position = Vector2(-0.31746, 0)
+scale = Vector2(0.0826485, 0.0826485)
+texture = ExtResource("4_w6esr")
+
+[node name="bombTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="detonationZone" to="." method="_on_detonation_zone_body_entered"]
+[connection signal="body_entered" from="activationZone" to="." method="_on_activation_zone_body_entered"]
+[connection signal="timeout" from="bombTimer" to="." method="_on_bomb_timer_timeout"]

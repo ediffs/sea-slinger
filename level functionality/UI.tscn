@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://do0g0n32f1fad"]
+
+[ext_resource type="Script" path="res://scripts/UI.gd" id="1_g0w0k"]
+[ext_resource type="FontFile" uid="uid://btl3xuoiwr8dy" path="res://other/Comic Sans MS Bold.ttf" id="2_57g6n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_orq5r"]
+font = ExtResource("2_57g6n")
+font_size = 36
+font_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+outline_size = 8
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g0w0k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Label" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_orq5r")

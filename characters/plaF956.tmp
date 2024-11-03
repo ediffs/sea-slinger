@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://l67jcjvhtjti"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_igoyf"]
+[ext_resource type="Texture2D" uid="uid://dpbsn2eh10l62" path="res://art/hoompert/Hoompert Vector@3x.png" id="2_ntki8"]
+[ext_resource type="Texture2D" uid="uid://c5rduqjjuvuq6" path="res://art/hoompert/Cursor.png" id="3_t5uol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ob3f"]
+radius = 36.0555
+
+[sub_resource type="Animation" id="Animation_ohnli"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCam:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qjnpr"]
+resource_name = "zoom_in"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCam:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1ay84"]
+resource_name = "camera_zoom"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCam:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbqd8"]
+_data = {
+"RESET": SubResource("Animation_ohnli"),
+"zoom_in": SubResource("Animation_qjnpr"),
+"zoom_out": SubResource("Animation_1ay84")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2wv8"]
+radius = 599.552
+
+[node name="player" type="CharacterBody2D"]
+scale = Vector2(0.84, 0.84)
+collision_layer = 2
+input_pickable = true
+script = ExtResource("1_igoyf")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 2.98023e-08)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_ntki8")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7ob3f")
+
+[node name="PlayerCam" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mbqd8")
+}
+
+[node name="mouseDetection" type="Area2D" parent="."]
+scale = Vector2(0.279999, 0.279999)
+
+[node name="MouseCollision" type="CollisionShape2D" parent="mouseDetection"]
+shape = SubResource("CircleShape2D_l2wv8")
+
+[node name="mouseTracker" type="Sprite2D" parent="."]
+rotation = -0.785398
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_t5uol")
+
+[connection signal="mouse_entered" from="mouseDetection" to="." method="_on_mouse_detection_mouse_entered"]
+[connection signal="mouse_exited" from="mouseDetection" to="." method="_on_mouse_detection_mouse_exited"]
