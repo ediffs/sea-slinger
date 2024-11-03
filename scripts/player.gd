@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var mouse_tracker = $mouseTracker
 @onready var player_cam = $PlayerCam
-
+@onready var animation_player = $AnimationPlayer
 
 var damping = 0.04
 var swipe_started = false
@@ -18,7 +18,7 @@ var swipe_vel_min = -50
 var swipe_vel_max = 50
 var moves = 0
 const follow = 4.0
-var base_collision = 200
+var base_collision = 300
 
 var mouse_in = true
 var in_range = false

@@ -1,25 +1,29 @@
 extends Node
 
-var starting_level = 1
+
 var next_level_path
+var level = 1
+var score = 0
 
 var level_container : Node2D
 var ui : Control
+var player : CharacterBody2D
 
 func _ready():
 	level_container = get_tree().get_first_node_in_group("level_container")
+	ui = get_tree().get_first_node_in_group("ui")
+	player = get_tree().get_first_node_in_group("player")
 	
-	load_level(starting_level)
+	load_level(level)
 
 func set_level():
-	var level = get_tree().current_scene.scene_file_path # uh oh
-	print(level)
-	var next_level = level.to_int() + 1
-	print(next_level)
-	load_level(next_level)
+	level += 1
+	score = 0
+	ui.update_score_label(score)
+	load_level(level)
 
-func load_level(next_level):
-	next_level_path = "res://levels/level_" + str(next_level) + ".tscn"
+func load_level(level):
+	next_level_path = "res://levels/level_" + str(level) + ".tscn"
 	
 	var scene = load(next_level_path) as PackedScene
 	
@@ -34,8 +38,14 @@ func load_level(next_level):
 	var instance = scene.instantiate()
 	level_container.add_child(instance)
 	
+	player.velocity = Vector2.ZERO
+	var player_start_position = get_tree().get_first_node_in_group("player_start_position") as Node2D
+	player.position = player_start_position.position
+	
+
 func add_score():
-	ui.addScore(1)
+	score += 1
+	ui.update_score_label(score)
 
 func _process(_delta):
 	pass

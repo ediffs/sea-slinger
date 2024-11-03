@@ -9,6 +9,6 @@
 
 [node name="player" parent="." instance=ExtResource("1_myojw")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Canvas" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("1_rf6rk")]
+[node name="UI" parent="Canvas" instance=ExtResource("1_rf6rk")]

@@ -4,7 +4,10 @@
 
 [node name="level_2" instance=ExtResource("1_nooxj")]
 
-[node name="endlevel" parent="." index="1"]
+[node name="pstart" type="Node2D" parent="." index="0" groups=["player_start_position"]]
+position = Vector2(-944, -1126)
+
+[node name="endlevel" parent="." index="2"]
 position = Vector2(-21, -1)
 
 [node name="bouncer3" parent="bouncers" index="1"]

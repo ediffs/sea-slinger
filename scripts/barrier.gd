@@ -5,13 +5,18 @@ extends Area2D
 
 func _on_body_entered(body):
 	body.velocity = Vector2.ZERO
-	body.set_physics_process(false)
-	body.get_node("PlayerCollision").queue_free()
+	set_physics_process(false)
+	body.set_physics_process(false) # need to reenable
+	body.get_node("PlayerCollision").set_deferred("disabled", true) # need to reenable
 	Engine.time_scale = 0.5
 	$deathTimer.start()
-	set_physics_process(false)
+
 
 
 func _on_death_timer_timeout():
 	Engine.time_scale = 1
-	get_tree().reload_current_scene()
+	set_physics_process(true)
+	GameManager.load_level(GameManager.level)
+
+	
+	#get_tree().reload_current_scene()

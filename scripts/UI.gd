@@ -1,12 +1,11 @@
 extends Control
 
 @onready var label = %Label
+@onready var color_rect = $ColorRect
+@onready var animation_player = $AnimationPlayer
 
 var score = 0
 
-func addScore(value):
-	score += value
-	update_score_label()
-
-func update_score_label():
-	label =  "Score: " + str(score)
+func update_score_label(score):
+	print(score)
+	label.text =  "Score: " + str(score)

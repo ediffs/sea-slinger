@@ -4,5 +4,7 @@
 
 [node name="level_1" instance=ExtResource("1_blgc8")]
 
+[node name="pstart" type="Node2D" parent="." index="0" groups=["player_start_position"]]
+
 [node name="barrier2" parent="walls" index="9"]
 position = Vector2(558, 335)

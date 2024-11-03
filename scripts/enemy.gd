@@ -21,6 +21,7 @@ func _on_body_entered(body):
 func _on_death_timer_timeout():
 	Engine.time_scale = 1
 	get_tree().reload_current_scene()
+	GameManager.load_level(GameManager.level)
 
 func _physics_process(delta):
 	if Horizontal == true:

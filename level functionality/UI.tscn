@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://do0g0n32f1fad"]
+[gd_scene load_steps=7 format=3 uid="uid://do0g0n32f1fad"]
 
 [ext_resource type="Script" path="res://scripts/UI.gd" id="1_g0w0k"]
 [ext_resource type="FontFile" uid="uid://btl3xuoiwr8dy" path="res://other/Comic Sans MS Bold.ttf" id="2_57g6n"]
@@ -9,7 +9,44 @@ font_size = 36
 font_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
 outline_size = 8
 
-[node name="UI" type="Control"]
+[sub_resource type="Animation" id="Animation_f786q"]
+resource_name = "screen fa"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.137255, 0.133333, 0.223529, 0), Color(0.137255, 0.133333, 0.223529, 1), Color(0.137255, 0.133333, 0.223529, 1), Color(0.137255, 0.133333, 0.223529, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f1uq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.137255, 0.133333, 0.223529, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_50jbg"]
+_data = {
+"RESET": SubResource("Animation_f1uq8"),
+"screen_fade": SubResource("Animation_f786q")
+}
+
+[node name="UI" type="Control" groups=["ui"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,3 +69,15 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_orq5r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 1081.0
+color = Color(0.137255, 0.133333, 0.223529, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_50jbg")
+}
