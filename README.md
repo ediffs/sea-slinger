@@ -1,4 +1,5 @@
 SEA SLINGER
+
 Arcade/Action Game
 
 HOW TO RUN:
@@ -12,7 +13,7 @@ https://erci.itch.io/sea-slinger-demo
 
 CREDITS:
 
-Programmed by Swapbell (Edith)
+Programmed by Swapbell
 
 Art Assets created by Troupple
 
