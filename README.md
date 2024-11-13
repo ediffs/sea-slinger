@@ -1,11 +1,12 @@
 SEA SLINGER
 
+![6HEAEy](https://github.com/user-attachments/assets/4c9313d8-9da6-471d-9b40-67a197a834fe)
 
 HOW TO RUN:
 
-1. Unzip Sea Slinger.zip
+1. Run Sea Slinger.exe
 
-2. Run Sea Slinger.exe
+2. Wow
 
 Web build and .zip file can also be accessed here:
 https://erci.itch.io/sea-slinger-demo
