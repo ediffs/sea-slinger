@@ -1,4 +1,3 @@
-=======
 SEA SLINGER
 
 ![6HEAEy](https://github.com/user-attachments/assets/4c9313d8-9da6-471d-9b40-67a197a834fe)
@@ -23,4 +22,3 @@ Art Assets created by Troupple
 Terrain Created Using the SmartShape2D Plugin: https://github.com/SirRamEsq/SmartShape2D
 
 Developed in Godot 4.2
->>>>>>> 64e85e7985ca88fa9eaee7e726425f68dda502e9
