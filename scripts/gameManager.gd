@@ -38,6 +38,10 @@ func load_level(level):
 	var instance = scene.instantiate()
 	level_container.add_child(instance)
 	
+	# in case of death
+	player.set_physics_process(true)
+	player.get_node("PlayerCollision").set_deferred("disabled", false)
+	
 	player.velocity = Vector2.ZERO
 	var player_start_position = get_tree().get_first_node_in_group("player_start_position") as Node2D
 	player.position = player_start_position.position

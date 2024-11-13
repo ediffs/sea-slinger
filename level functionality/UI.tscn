@@ -9,6 +9,21 @@ font_size = 36
 font_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
 outline_size = 8
 
+[sub_resource type="Animation" id="Animation_f1uq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.137255, 0.133333, 0.223529, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_f786q"]
 resource_name = "screen fa"
 length = 2.0
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(0.137255, 0.133333, 0.223529, 0), Color(0.137255, 0.133333, 0.223529, 1), Color(0.137255, 0.133333, 0.223529, 1), Color(0.137255, 0.133333, 0.223529, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_f1uq8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.137255, 0.133333, 0.223529, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_50jbg"]
