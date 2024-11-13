@@ -1,9 +1,10 @@
 extends Node
 
+const DEFAULT_SCORE = 100
 
 var next_level_path
 var level = 1
-var score = 0
+var score = DEFAULT_SCORE
 
 var level_container : Node2D
 var ui : Control
@@ -18,11 +19,14 @@ func _ready():
 
 func set_level():
 	level += 1
-	score = 0
-	ui.update_score_label(score)
+	score = DEFAULT_SCORE
 	load_level(level)
 
 func load_level(level):
+	# start the score counter
+	score = DEFAULT_SCORE
+	decrease_score(1000, get_process_delta_time())
+	
 	next_level_path = "res://levels/level_" + str(level) + ".tscn"
 	
 	var scene = load(next_level_path) as PackedScene
@@ -34,13 +38,15 @@ func load_level(level):
 		child.queue_free()
 		await child.tree_exited
 	
-	# set up new scene
-	var instance = scene.instantiate()
-	level_container.add_child(instance)
 	
 	# in case of death
 	player.set_physics_process(true)
 	player.get_node("PlayerCollision").set_deferred("disabled", false)
+	
+	
+	# set up new scene
+	var instance = scene.instantiate()
+	level_container.add_child(instance)
 	
 	player.velocity = Vector2.ZERO
 	var player_start_position = get_tree().get_first_node_in_group("player_start_position") as Node2D
@@ -48,8 +54,15 @@ func load_level(level):
 	
 
 func add_score():
-	score += 1
+	score += 20
 	ui.update_score_label(score)
 
-func _process(_delta):
-	pass
+func _process(delta):
+	ui.update_score_label(score)
+	if (score < 0):
+		score = 0
+
+func decrease_score(seconds, delta):
+	for i in (DEFAULT_SCORE / 0.01):
+		await get_tree().create_timer(delta * seconds).timeout
+		score -= 0.01
