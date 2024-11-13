@@ -1,6 +1,5 @@
 SEA SLINGER
 
-Arcade/Action Game
 
 HOW TO RUN:
 
