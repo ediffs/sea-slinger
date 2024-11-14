@@ -4,6 +4,9 @@ extends Node2D
 
 
 func _on_body_entered(body):
+	
+	print("died")
+	
 	body.velocity = Vector2.ZERO
 	set_physics_process(false)
 	
@@ -13,6 +16,7 @@ func _on_body_entered(body):
 	
 	Engine.time_scale = 0.5
 	$deathTimer.start()
+	
 
 
 

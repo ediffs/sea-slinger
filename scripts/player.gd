@@ -70,7 +70,7 @@ func _physics_process(delta):
 	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision:
 		var reflect = collision.get_remainder().bounce(collision.get_normal())
-		print(collision.get_normal())
+		print(velocity)
 		velocity = Vector2(velocity.bounce(collision.get_normal())) + base_collision * collision.get_normal()
 		move_and_collide(reflect)
 	if velocity <= Vector2(swipe_vel_max, swipe_vel_max) && velocity >= Vector2(swipe_vel_min, swipe_vel_min):

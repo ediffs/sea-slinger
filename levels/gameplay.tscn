@@ -12,3 +12,6 @@
 [node name="Canvas" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="Canvas" instance=ExtResource("1_rf6rk")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.588235, 0.886275, 0.866667, 1)
