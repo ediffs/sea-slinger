@@ -9,7 +9,7 @@ HOW TO RUN:
 2. Wow
 
 Web build and .zip file can also be accessed here:
-https://erci.itch.io/sea-slinger-demo
+https://ediffs.itch.io/sea-slinger-demo
 
 
 
